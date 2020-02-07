@@ -1,0 +1,152 @@
+body {
+    font-family: 'Exo 2', sans-serif;
+    max-height: 100%;
+}
+
+.cartaz {
+    color: orange;
+    font-weight: bold;
+}
+
+.border-orange {
+    border-left: 4px solid;
+    border-left-color: orange;
+}
+
+.border-light {
+    border-bottom: 1px solid;
+    border-bottom-color: lightgray;
+}
+
+.card-item:before, .card-item:after
+{
+	content:'';
+	position: absolute;
+	width: 0;
+	height: 0;
+	box-sizing: border-box; //important
+    transition: .3s;
+
+}
+.card-item:before{
+	bottom: 0;
+	left: 0;
+	border-left: 2px solid transparent;
+	border-bottom: 2px solid transparent;
+	transition: all .3s;
+}
+.card-item:after{
+	top: 0;
+	right: 0;
+	border-top: 2px solid transparent;
+	border-right: 2px solid transparent;
+	transition: all .3s;
+}
+.card-item:hover:before,
+.card-item:hover:after{
+	border-color: rgb(3, 165, 240);
+	width: 100%;
+	height: 100%;
+}
+.card-item:hover .fa{
+	color: rgb(3, 165, 240);
+}
+
+@media screen and (max-width:768px){
+	.card-item{
+		width: 100%;
+		margin: 0;
+	}
+}
+
+.overline-from-left {
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px transparent;
+    position: relative;
+    overflow: hidden;
+    color: #444d58;    
+    transition: border 0.2s ease-in-out;
+	border-color: orange;
+	border-radius: 0px;
+  }
+  .overline-from-left:before {
+    content: "";
+    position: absolute;    
+    left: 0;
+    right: 100%;
+    top: 0;
+    background: orange;
+    height: 4px;
+    -webkit-transition-property: right;
+    transition-property: right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.2s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+
+  .overline-from-left:active {
+    color: white;
+    background: orange;
+    border-color: orange;
+    transition: background 0.2s ease-in-out;
+  }
+
+  .overline-from-left:focus {
+    background: orange;
+    border-color: orange;
+    border-bottom-color: orange; 
+  }
+
+  .overline-from-left:hover:before, .overline-from-left:focus:before, .overline-from-left:active:before {
+    right: 0;
+  }
+
+
+  // CHECKBOX CUSTOMIZADO
+
+.container {
+    display: inline;
+	position: relative;		
+	padding-left: 20px;
+    cursor: pointer;    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+	user-select: none;    
+	vertical-align: middle;
+}
+
+/* Esconder o checkbox padrão do navegador */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;    
+}
+
+/* Estilo do checkbox customizado */
+.checkmark {
+    position: absolute;
+    top: 0;
+	left: 0;
+    height: 15px;
+    width: 15px;
+	background-color: #eee;
+	border-radius: 20%;	
+	transition: ease 0.3s;	
+}
+
+/* Aplicar fundo cinza quando o passar o mouse sobre o chk */
+.container:hover input ~ .checkmark {
+	background-color: orange;
+	transition: ease 0.3s;	
+}
+
+/* Aplicar fundo quando o chk for clicado */
+.container input:checked ~ .checkmark {
+	background-color: orangered;
+	transition: ease 0.3s;
+}
+

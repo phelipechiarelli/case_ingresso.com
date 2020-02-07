@@ -1,0 +1,90 @@
+<body class="bg-dark">
+
+  <div class="card bg-dark">
+    <p class="h2 text-white pl-3">Filmes</p>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-12 text-white pt-0 mt-0">
+          <div class="radio">
+            <label for="raddub" class="container form-control-label">
+              <input id="raddub" type="checkbox" name="situacao" value="dub" />
+              <span class="checkmark"></span>DUB
+            </label>  
+            <label for="radleg" class="container form-control-label">
+              <input id="radleg" type="checkbox"  name="situacao" value="leg" />
+              <span class="checkmark"></span>LEG
+            </label>
+            <label for="rad2d" class="container form-control-label">
+              <input id="rad2d" type="checkbox"  name="situacao" value="2d" />
+              <span class="checkmark"></span>2D
+            </label>
+            <label for="rad3d" class="container form-control-label">
+              <input id="rad3d" type="checkbox"  name="situacao" value="3d" />
+              <span class="checkmark"></span>3D
+            </label>
+            <label for="rad4d" class="container form-control-label">
+              <input id="rad4d" type="checkbox"  name="situacao" value="4d" />
+              <span class="checkmark"></span>4D
+            </label>
+            <label for="raddbox" class="container form-control-label">
+              <input id="raddbox" type="checkbox"  name="situacao" value="dbox" />
+              <span class="checkmark"></span>D-BOX
+            </label>
+            <label for="radxd" class="container form-control-label">
+              <input id="radxd" type="checkbox"  name="situacao" value="xd" />
+              <span class="checkmark"></span>XD
+            </label>
+            <label for="radvip" class="container form-control-label">
+              <input id="radvip" type="checkbox"  name="situacao" value="vip" />
+              <span class="checkmark"></span>VIP
+            </label>
+            <label for="radcinepic" class="container form-control-label">
+              <input id="radcinepic" type="checkbox"  name="situacao" value="cin" />
+              <span class="checkmark"></span>Cinépic
+            </label>
+          </div>
+                   
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="border-orange pl-0 ml-0 col-xs-6 col-sm-6 col-md-2 col-lg-2 col-xl-2">
+          <p class="h6 text-white pl-2"><span class="cartaz">EM CARTAZ</span> na cidade {{regiaoEstado}}.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="border-dark pl-0 ml-0 col-xs-6 col-sm-6 col-md-12 col-lg-12 col-xl-12">
+        </div>
+      </div>
+      <div class="card-deck p-1 m-0">
+        <div class="card bg-dark border-0 overline-from-left" *ngFor="let lista of lista">
+          <div class="row">
+            <div class="card-body p-1 col-md-12">
+              <div class="col-md-12 m-0 p-0 float-left">
+                <a [attr.href]="lista.event.trailers[0].url" target="_blank">
+                  <img [attr.src]="lista.event.images[0].url" width="100%">
+                </a>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 ml-3 mt-2">
+                  <p class="card-title text-white h6">{{lista.event.title}}</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 ml-3 mt-2">
+                  <span class="badge badge-warning d-inline mr-1 mb-1"
+                    *ngFor="let tags of lista.event.completeTags">{{tags.name}}
+                  </span>
+                  <span class="badge badge-danger d-inline mr-1 mb-1">{{lista.event.contentRating}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
